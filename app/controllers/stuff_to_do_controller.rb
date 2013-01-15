@@ -19,7 +19,9 @@ class StuffToDoController < ApplicationController
   
   def reorder
     StuffToDo.reorder_list(@user, params[:stuff])
+    
     @doing_now = StuffToDo.doing_now(@user)
+    @doing_now.inspect
     @recommended = StuffToDo.recommended(@user)
     @available = StuffToDo.available(@user, get_filters )
 
